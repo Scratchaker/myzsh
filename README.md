@@ -25,7 +25,7 @@ Dependig on what features you decide to add you may need some of the following d
 - Distrobox
 
 ## Installation
-Download all files in the repo, extract them somewere in your home folder and append the following to your `~/.zshrc` replacing `$HOME/path/to/extracted/files` with the path where you extracted the files.
+Download the repo as zip, extract everything somewere in your home folder and append the following to your `~/.zshrc`, replacing `$HOME/path/to/extracted/files` with the path where you extracted the files.
 
 ```
 SCRIPTS_PATH="$HOME/path/to/extracted/files"
