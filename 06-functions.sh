@@ -97,6 +97,33 @@ container(){
     cd && exec bash"
 }
 
+persistent_container() {
+    local data_dir="${CONTAINER_DATA_DIR:-containerdata}"
+    local packages="${CONTAINER_PACKAGES:-git nano curl wget vim}"
+
+    mkdir -p "$data_dir"
+
+    if [[ ! -f  $data_dir/.bashrc ]];then
+      cat > $data_dir/.bashrc <<EOF
+export PS1='\w \\$ '
+alias ll='ls -lah'
+alias sudo=''
+
+EOF
+    fi
+
+
+    docker run --rm -it \
+        -v "$(pwd)/$data_dir:/root" \
+        debian:latest bash -c "\
+        echo 'Pulling package lists...' &&\
+        apt update > /dev/null 2>&1 &&\
+        echo 'Upgrading...' &&\
+        apt upgrade -y > /dev/null 2>&1 &&\
+        echo 'Installing packages...' &&\
+        apt install -y $packages > /dev/null 2>&1 &&\
+        cd && exec bash"
+}
 
 # Packcage manager functions
 _pkg_manager() { # Detect packcage manager
