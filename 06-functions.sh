@@ -136,7 +136,7 @@ _pkg_manager() { # Detect packcage manager
   fi
 }
 
-pkgif() { # PaKcaGe Install Fuzzyly
+pkgif() { # PacKaGe Install Fuzzyly
   local mgr
   mgr=$(_pkg_manager)
   case "$mgr" in
@@ -159,7 +159,7 @@ pkgif() { # PaKcaGe Install Fuzzyly
   esac
 }
 
-pkgrf() { # PaKcaGe Remove Fuzzyly
+pkgrf() { # PacKaGe Remove Fuzzyly
   local mgr
   mgr=$(_pkg_manager)
   case "$mgr" in
@@ -182,7 +182,7 @@ pkgrf() { # PaKcaGe Remove Fuzzyly
   esac
 }
 
-pkgpf() { # PaKcaGe Purge Fuzzyly
+pkgpf() { # PacKaGe Purge Fuzzyly
   local mgr
   mgr=$(_pkg_manager)
   case "$mgr" in
