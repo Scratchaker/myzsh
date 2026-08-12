@@ -14,7 +14,7 @@ If you decide to use parts of this configuration, expect to modify it to suit yo
 ## Dependencies
 Dependig on what features you decide to add you may need some of the following dependencies, for the full setup you will need:
 - Zsh
-- Oh My Zsh
+- Oh My Zsh 
     - git
     - zsh-autosuggestions
     - zsh-syntax-highlighting
@@ -23,6 +23,19 @@ Dependig on what features you decide to add you may need some of the following d
 - fastfetch
 - Docker
 - Distrobox
+
+**Oh My Zsh**
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+**zsh-autosuggestions**
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+```
+**zsh-syntax-highlighting**
+```
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+```
 
 ## Installation
 Download the repo as zip, extract everything somewere in your home folder and append the following to your `~/.zshrc`, replacing `$HOME/path/to/extracted/files` with the path where you extracted the files.
