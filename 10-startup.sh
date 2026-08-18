@@ -18,10 +18,6 @@ if [ "$RUN_FASTFETCH" -eq 1 ]; then
     fi
 fi
 
-# Disable zsh extended glob expansion
-setopt NO_NOMATCH
-
-
 # Use a separate history file per distrobox container
 if [[ -n "$CONTAINER_ID" ]]; then
     export HISTFILE="$HOME/.zsh_history_${CONTAINER_ID}"

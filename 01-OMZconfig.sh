@@ -16,3 +16,8 @@ ZSH_HIGHLIGHT_STYLES[precommand]=fg=green
 
 # Disable history recommendations
 ZSH_AUTOSUGGEST_STRATEGY=(completion)
+
+# Disable zsh extended glob expansion
+setopt NO_NOMATCH
+# Disable hystory save if command starts with space
+setopt HIST_IGNORE_SPACE
