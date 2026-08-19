@@ -28,13 +28,13 @@ alias cls='clear'
 
 # cd aliases
 alias z..='z ..'
-alias cdr='builtin cd'
-alias cdr..='builtin cd ..'
-alias home='builtin cd ~'
-alias cd..='builtin cd ..'
-alias cd...='builtin cd ../..'
-alias cd....='builtin cd ../../..'
-alias cd.....='builtin cd ../../../..'
+alias cdr='cd'
+alias cdr..='cd ..'
+alias home='cd ~'
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias cd.....='cd ../../../..'
 alias '\cd'='builtin cd' # Allow using bultin cd (overriden by zoxide)
 
 # ls aliases  # From: https://github.com/ChrisTitusTech/mybash
