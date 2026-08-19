@@ -1,3 +1,8 @@
+# New, mimimal prompt
+PROMPT='%F{blue}%~%f %(?.%F{green}.%F{red})>%f '
+return
+
+
 # Adapted from: https://gist.github.com/loudambiance/a41b42a4295bce6e7304
 # Original author: Daniel Baucom (https://gist.github.com/loudambiance)
 

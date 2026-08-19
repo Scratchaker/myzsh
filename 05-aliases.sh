@@ -23,6 +23,7 @@ alias o='xdg-open'
 alias o.='xdg-open .'
 alias please='sudo'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias cls='clear'
 
 
 # cd aliases

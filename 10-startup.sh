@@ -1,14 +1,23 @@
 # Define startup script
-RUN_FASTFETCH=0
+RUN_FASTFETCH=1
 if [ -n "$SSH_TTY" ]; then
     # SSH Session
     RUN_FASTFETCH=0
-    clear
 fi
 case "$(ps -o comm= -p $PPID 2>/dev/null)" in
     guake|yakuake|dolphin|kate|code|codium)
         # Running inside an application where fastfetch should not appear (You may need to add more)
         RUN_FASTFETCH=0
+        ;;
+esac
+
+# Make dolphin terminal clear after changing directory
+case "$(ps -o comm= -p $PPID 2>/dev/null)" in
+    dolphin)
+        cd() {
+            builtin cd ${1:-$HOME}
+            clear
+        }
         ;;
 esac
 
