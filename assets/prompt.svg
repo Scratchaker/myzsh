@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="40" viewBox="0 0 260 40" font-family="Menlo, Consolas, 'Courier New', monospace" font-size="18">
+  <rect width="260" height="40" fill="#0d1117" rx="6"/>
+  <text x="14" y="25" fill="#79c0ff">~</text>
+  <text x="30" y="25" fill="#3fb950">&gt;</text>
+  <text x="46" y="25" fill="#c9d1d9">myzsh</text>
+</svg>
