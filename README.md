@@ -69,7 +69,7 @@ Download the repo as a ZIP, extract everything somewhere in your home folder, an
 
 ```sh
 SCRIPTS_PATH="$HOME/path/to/extracted/files"
-for script in $SCRIPTS_PATH/*.sh; do
+for script in "$SCRIPTS_PATH"/*.sh; do
     [ -f "$script" ] && . "$script"
 done
 ```
