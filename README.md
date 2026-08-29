@@ -72,6 +72,7 @@ SCRIPTS_PATH="$HOME/path/to/extracted/files"
 for script in "$SCRIPTS_PATH"/*.sh; do
     [ -f "$script" ] && . "$script"
 done
+unset script
 ```
 
 </details>
