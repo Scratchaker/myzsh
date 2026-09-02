@@ -77,44 +77,19 @@ mvcd() {
 }
 
 
-# Temporary container for testing
-container(){
-    docker run --rm -it debian:latest bash -c "\
-    echo 'Pulling package lists...' &&\
-    apt update > /dev/null 2>&1 &&\
-    echo 'Upgrading...' &&\
-    apt upgrade -y > /dev/null 2>&1 &&\
-    echo 'Installing packcages...' &&\
-    apt install -y git nano curl wget vim > /dev/null 2>&1 &&\
-    cd && exec bash"
-}
-
-persistent_container() {
-    local data_dir="${CONTAINER_DATA_DIR:-containerdata}"
-    local packages="${CONTAINER_PACKAGES:-git nano curl wget vim}"
-
-    mkdir -p "$data_dir"
-
-    if [[ ! -f  $data_dir/.bashrc ]];then
-      cat > $data_dir/.bashrc <<EOF
-export PS1='\w \\$ '
-alias ll='ls -lah'
-alias sudo=''
-
+# Temporary container for testing with persistent home
+test_container(){
+  local home_dir="$(pwd)/.containerhome"
+  mkdir -p "$home_dir" || return 1
+  if [ ! -f "$home_dir/.zshrc" ]; then
+    cat > "$home_dir/.zshrc" <<'EOF'
+autoload -Uz colors && colors
+setopt PROMPT_SUBST
+PROMPT='%(!.%F{red}.%F{green})${debian_chroot:+($debian_chroot)}%n@%m%f:%F{blue}%~%f%# '
+cd
 EOF
-    fi
-
-
-    docker run --rm -it \
-        -v "$(pwd)/$data_dir:/root" \
-        debian:latest bash -c "\
-        echo 'Pulling package lists...' &&\
-        apt update > /dev/null 2>&1 &&\
-        echo 'Upgrading...' &&\
-        apt upgrade -y > /dev/null 2>&1 &&\
-        echo 'Installing packages...' &&\
-        apt install -y $packages > /dev/null 2>&1 &&\
-        cd && exec bash"
+  fi
+  HOME="$home_dir" distrobox-ephemeral --image debian:latest --additional-packages "fzf zoxide zsh"
 }
 
 # Open a packcage's aur website for checkup

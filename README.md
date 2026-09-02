@@ -24,7 +24,6 @@ If you decide to use parts of this configuration, expect to modify it to suit yo
 - Zoxide
 - fzf
 - fastfetch
-- Docker
 - Distrobox
 
 </details>
