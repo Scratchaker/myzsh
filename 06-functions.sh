@@ -117,6 +117,11 @@ EOF
         cd && exec bash"
 }
 
+# Open a packcage's aur website for checkup
+aurcheck() {
+  xdg-open "https://aur.archlinux.org/packages/$1"
+}
+
 # Packcage manager functions
 _pkg_manager() { # Detect packcage manager
   if command -v yay &>/dev/null; then echo "yay"
