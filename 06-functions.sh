@@ -78,18 +78,24 @@ mvcd() {
 
 
 # Temporary container for testing with persistent home
+# DO NOT RUN DANGEROUS COMMANDS IN THE CONTAINER: They can reach the host. The container's purpose is to test stuff without dirtying the host.
 test_container(){
-  local home_dir="$(pwd)/.containerhome"
-  mkdir -p "$home_dir" || return 1
-  if [ ! -f "$home_dir/.zshrc" ]; then
-    cat > "$home_dir/.zshrc" <<'EOF'
+  local CONTAINER_HOME="${CONTAINER_HOME:-$(pwd)/.containerhome}"
+  local IMAGE="${IMAGE:-debian:latest}"
+  local CONTAINER_PKGS="${CONTAINER_PKGS:-fzf zoxide zsh}"
+
+  mkdir -p "$CONTAINER_HOME" || return 1
+
+  if [ ! -f "$CONTAINER_HOME/.zshrc" ]; then
+    cat > "$CONTAINER_HOME/.zshrc" <<'EOF'
 autoload -Uz colors && colors
 setopt PROMPT_SUBST
-PROMPT='%(!.%F{red}.%F{green})${debian_chroot:+($debian_chroot)}%n@%m%f:%F{blue}%~%f%# '
+PROMPT='%(!.%F{red}.%F{green})%n@%m%f:%F{blue}%~%f%(!.#.$) '
 cd
 EOF
   fi
-  HOME="$home_dir" distrobox-ephemeral --image debian:latest --additional-packages "fzf zoxide zsh"
+
+  HOME="$CONTAINER_HOME" distrobox-ephemeral --image "$IMAGE" --additional-packages "$CONTAINER_PKGS"
 }
 
 # Open a packcage's aur website for checkup
