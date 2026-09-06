@@ -23,7 +23,7 @@ esac
 
 if [ "$RUN_FASTFETCH" -eq 1 ]; then
 	if [ -f /usr/bin/fastfetch ]; then
-        fastfetch --config neofetch
+        fastfetch
     fi
 fi
 
