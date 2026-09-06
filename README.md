@@ -24,6 +24,7 @@ Dependig on what features you decide to add you may need some of the following d
 - fzf
 - fastfetch
 - Distrobox
+- Any nerd font, see [here](https://www.nerdfonts.com/font-downloads).
 
 ## Installation
 <details>
