@@ -14,8 +14,7 @@ The main purpose of publishing it is to:
 If you decide to use parts of this configuration, expect to modify it to suit your own environment.
 
 ## Dependencies
-<details>
-<summary>Dependig on what features you decide to add you may need some of the following dependencies, for the full setup you will need:</summary>
+Dependig on what features you decide to add you may need some of the following dependencies, for the full setup you will need:
     
 - Zsh
 - Oh My Zsh
@@ -25,9 +24,6 @@ If you decide to use parts of this configuration, expect to modify it to suit yo
 - fzf
 - fastfetch
 - Distrobox
-
-</details>
-
 
 ## Installation
 <details>
@@ -62,9 +58,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM
 
 <details>
 
-<summary><strong>Profile</strong></summary>
+<summary><strong>Shell Profile</strong></summary>
 
-Download the repo as a ZIP, extract everything somewhere in your home folder, and append the following to your `~/.zshrc`, replacing `$HOME/path/to/extracted/files` with the path where you extracted the files.
+Download the repo as a ZIP, extract every `.sh` file somewhere in your home folder, and append the following to your `~/.zshrc`, replacing `$HOME/path/to/extracted/files` with the path where you extracted the files.
 
 ```sh
 SCRIPTS_PATH="$HOME/path/to/extracted/files"
@@ -73,5 +69,13 @@ for script in "$SCRIPTS_PATH"/*.sh; do
 done
 unset script
 ```
+
+</details>
+
+<details>
+
+<summary><strong>Fastfetch config</strong></summary>
+
+Copy the `.config/fastfetch/config.jsonc` file in the repo to `~/.config/fastfetch/config.jsonc`.
 
 </details>
