@@ -79,7 +79,7 @@ mvcd() {
 
 # Temporary container for testing with persistent home
 # DO NOT RUN DANGEROUS COMMANDS IN THE CONTAINER: They can reach the host. The container's purpose is to test stuff without dirtying the host.
-test_container(){
+test-container(){
   local CONTAINER_HOME="${CONTAINER_HOME:-$(pwd)/.containerhome}"
   local IMAGE="${IMAGE:-debian:latest}"
   local CONTAINER_PKGS="${CONTAINER_PKGS:-fzf zoxide zsh}"
