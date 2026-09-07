@@ -9,10 +9,26 @@
             "left": 2
         }
     },
+    "display": {
+        "percent": {
+            "type": ["bar"]
+        },
+        "bar": {
+            "width": 10,
+            "char": {
+                "elapsed": "󰝤",
+                "total": "\u001b[90m󰝤"
+            },
+            "border": {
+                "left": "",
+                "right": ""
+            }
+        }
+    },
     "modules": [
         {
             "type": "custom",
-            "format": "\u001b[90m┌────────────────────────Hardware─────────────────────────┐"
+            "format": "\u001b[90m┌──────────────────────────────Hardware───────────────────────────────┐"
         },
         {
             "type": "custom",
@@ -32,17 +48,27 @@
         {
             "type": "memory",
             "key": "├   ",
-            "keyColor": "green"
+            "keyColor": "green",
+            "percent": {
+                "type": ["num"]
+            }
         },
         {
             "type": "swap",
             "key": "├  󰯍 ",
-            "keyColor": "green"
+            "keyColor": "green",
+            "percent": {
+                "type": ["num"]
+            }
         },
         {
             "type": "disk",
             "key": "├  󰋊 ",
-            "keyColor": "green"
+            "format": "({mountpoint}): {size-used} [{size-percentage} {size-percentage-bar}] {size-total} - {filesystem}",
+            "keyColor": "green",
+            "percent": {
+                "type": ["bar", "num"]
+            }
         },
         {
             "type": "localip",
@@ -57,11 +83,11 @@
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└─────────────────────────────────────────────────────────┘"
+            "format": "\u001b[90m└─────────────────────────────────────────────────────────────────────┘"
         },
         {
             "type": "custom",
-            "format": "\u001b[90m┌────────────────────────Software─────────────────────────┐"
+            "format": "\u001b[90m┌──────────────────────────────Software───────────────────────────────┐"
         },
         {
             "type": "os",
@@ -103,11 +129,11 @@
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└─────────────────────────────────────────────────────────┘"
+            "format": "\u001b[90m└─────────────────────────────────────────────────────────────────────┘"
         },
         {
             "type": "custom",
-            "format": "\u001b[90m┌───────────────────────Uptime / Age──────────────────────┐"
+            "format": "\u001b[90m┌─────────────────────────────Uptime / Age────────────────────────────┐"
         },
         {
             "type": "uptime",
@@ -122,7 +148,7 @@
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└─────────────────────────────────────────────────────────┘"
+            "format": "\u001b[90m└─────────────────────────────────────────────────────────────────────┘"
         },
         {
             "type": "colors",
