@@ -5,8 +5,8 @@
         "height": 15,
         "width": 30,
         "padding": {
-            "top": 3,
-            "left": 3
+            "top": 2,
+            "left": 2
         }
     },
     "modules": [
@@ -16,38 +16,38 @@
         },
         {
             "type": "custom",
-            "format": "\u001b[1;92m󰌢   PC\u001b[0m",
+            "format": "\u001b[1;92m󰌢 PC\u001b[0m",
             "keyColor": "green"
         },
         {
             "type": "cpu",
-            "key": "│ ├  ",
+            "key": "├   ",
             "keyColor": "green"
         },
         {
             "type": "gpu",
-            "key": "│ ├ 󰍹 ",
+            "key": "├  󰍹 ",
             "keyColor": "green"
         },
         {
             "type": "memory",
-            "key": "│ ├  ",
+            "key": "├   ",
             "keyColor": "green"
         },
         {
             "type": "swap",
-            "key": "│ ├ 󰯍 ",
+            "key": "├  󰯍 ",
             "keyColor": "green"
         },
         {
             "type": "disk",
-            "key": "│ ├ 󰋊 ",
+            "key": "├  󰋊 ",
             "keyColor": "green"
         },
         {
             "type": "localip",
             "keyColor": "green",
-            "key": "│ └ 󰖩 ",
+            "key": "├  󰖩 ",
             "showIpv4": true,
             "showIpv6": false,
             "showLoopback": false,
@@ -65,40 +65,40 @@
         },
         {
             "type": "os",
-            "key": "   OS",
+            "key": " OS",
             "format": "{2}",
             "keyColor": "yellow"
         },
         {
             "type": "kernel",
-            "key": "│ ├  ",
+            "key": "├   ",
             "keyColor": "yellow"
         },
 
         {
             "type": "packages",
-            "key": "│ ├ 󰏗 ",
+            "key": "├  󰏗 ",
             "keyColor": "yellow"
         },
         {
             "type": "shell",
-            "key": "│ └ 󰞷 ",
+            "key": "├  󰞷 ",
             "format": "{1}",
             "keyColor": "yellow"
         },
         {
             "type": "de",
-            "key": "󰧨   DE",
+            "key": "󰧨 DE",
             "keyColor": "blue"
         },
         {
             "type": "wm",
-            "key": "│ ├ 󱂬 ",
+            "key": "├  󱂬 ",
             "keyColor": "blue"
         },
         {
             "type": "wmtheme",
-            "key": "│ └ 󰉦 ",
+            "key": "├  󰉦 ",
             "keyColor": "blue"
         },
         {
