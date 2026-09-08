@@ -1,5 +1,5 @@
 # myzsh
-<img src="assets/prompt.svg" width="400">
+<img src="assets/cover.png" width="800">
 
 ## Introduction
 This repository contains my personal Zsh configuration.
