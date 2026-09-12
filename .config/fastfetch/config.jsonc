@@ -76,7 +76,7 @@
         {
             "type": "localip",
             "keyColor": "green",
-            "key": "├  󰖩 ",
+            "key": "├   ",
             "showIpv4": true,
             "showIpv6": false,
             "showLoopback": false,
