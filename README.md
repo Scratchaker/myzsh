@@ -20,6 +20,7 @@ Dependig on what features you decide to add you may need some of the following d
 - Oh My Zsh
     - zsh-autosuggestions
     - zsh-syntax-highlighting
+- powerlevel10k
 - Zoxide
 - fzf
 - fastfetch
@@ -54,6 +55,23 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git "${ZSH_CUSTOM:-$H
 ```sh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 ```
+
+</details>
+
+</details>
+
+<details>
+
+<summary><strong>powerlevel10k</strong></summary>
+
+Install powerlevel10k:
+
+```sh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
+```
+Install my config:
+
+Copy the `.p10k.zsh` file in the repo to `~/.p10k.zsh`.
 
 </details>
 
