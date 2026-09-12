@@ -67,11 +67,16 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM
 Install powerlevel10k:
 
 ```sh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
+ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
 ```
 Install my config:
 
-Copy the `.p10k.zsh` file in the repo to `~/.p10k.zsh`.
+Copy the `.p10k.zsh` file in the repo to `~/.p10k.zsh`:
+
+```
+ [ -f "$HOME/.p10k.zsh" ] && mv "$HOME/.p10k.zsh" "$HOME/.p10k.zsh.backup"
+ curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/.p10k.zsh" -o "$HOME/.p10k.zsh"
+```
 
 </details>
 
@@ -88,6 +93,38 @@ for script in "$SCRIPTS_PATH"/*.sh; do
 done
 unset script
 ```
+<details>
+    <summary>Or automatically:</summary>
+
+```
+ [ -d "$HOME/.zshrc.d" ] && mv "$HOME/.zshrc.d" "$HOME/.zshrc.d.backup"
+ mkdir -p "$HOME/.zshrc.d"
+
+ curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/01-OMZconfig.sh" -o "$HOME/.zshrc.d/01-OMZconfig.sh"
+ curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/02-env.sh" -o "$HOME/.zshrc.d/02-env.sh"
+ curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/03-exports.sh" -o "$HOME/.zshrc.d/03-exports.sh"
+ curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/04-evals.sh" -o "$HOME/.zshrc.d/04-evals.sh"
+ curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/05-aliases.sh" -o "$HOME/.zshrc.d/05-aliases.sh"
+ curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/06-functions.sh" -o "$HOME/.zshrc.d/06-functions.sh"
+ curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/07-path.sh" -o "$HOME/.zshrc.d/07-path.sh"
+ curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/08-prompt.sh" -o "$HOME/.zshrc.d/08-prompt.sh"
+ curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/09-toolsconfig.sh" -o "$HOME/.zshrc.d/09-toolsconfig.sh"
+ curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/10-startup.sh" -o "$HOME/.zshrc.d/10-startup.sh"
+ curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/11-distrobox.sh" -o "$HOME/.zshrc.d/11-distrobox.sh"
+ curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/12-end.sh" -o "$HOME/.zshrc.d/12-end.sh"
+
+ cat << 'EOF' >> "$HOME/.zshrc"
+
+# Scratchaker/myzsh
+SCRIPTS_PATH="$HOME/.zshrc.d"
+for script in "$SCRIPTS_PATH"/*.sh; do
+    [ -f "$script" ] && . "$script"
+done
+unset script
+EOF
+```
+    
+</details>
 
 </details>
 
@@ -95,6 +132,12 @@ unset script
 
 <summary><strong>Fastfetch config</strong></summary>
 
-Copy the `.config/fastfetch/config.jsonc` file in the repo to `~/.config/fastfetch/config.jsonc`.
+Copy the `.config/fastfetch/config.jsonc` file in the repo to `~/.config/fastfetch/config.jsonc`:
+
+```
+ [ -f "$HOME/.config/fastfetch/config.jsonc" ] && mv "$HOME/.config/fastfetch/config.jsonc" "$HOME/.config/fastfetch/config.jsonc.backup"
+ mkdir -p "$HOME/.config"
+ curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/.config/fastfetch/config.jsonc" -o "$HOME/.config/fastfetch/config.jsonc"
+```
 
 </details>
