@@ -156,7 +156,7 @@ Copy the `.config/fastfetch/config.jsonc` file in the repo to `~/.config/fastfet
 
 ```
  [ -f "$HOME/.config/fastfetch/config.jsonc" ] && mv "$HOME/.config/fastfetch/config.jsonc" "$HOME/.config/fastfetch/config.jsonc.backup"
- mkdir -p "$HOME/.config"
+ mkdir -p "$HOME/.config/fastfetch"
  curl -Lf "https://raw.githubusercontent.com/Scratchaker/myzsh/main/.config/fastfetch/config.jsonc" -o "$HOME/.config/fastfetch/config.jsonc"
 ```
 
