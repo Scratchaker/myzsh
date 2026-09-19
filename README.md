@@ -30,6 +30,25 @@ Dependig on what features you decide to add you may need some of the following d
 
 ## Installation
 <details>
+<summary><strong>Dependencies</strong></summary>
+
+**Debian/Ubuntu:**
+```
+sudo apt install zsh zoxide eza fzf fastfetch distrobox
+```
+
+**Fedora:**
+```
+sudo dnf install zsh zoxide eza fzf fastfetch distrobox
+```
+
+**Arch Linux:**
+```
+sudo pacman -S zsh zoxide eza fzf fastfetch distrobox
+```
+
+</details>
+<details>
 
 <summary><strong>Oh My Zsh</strong></summary>
 
