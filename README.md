@@ -22,6 +22,7 @@ Dependig on what features you decide to add you may need some of the following d
     - zsh-syntax-highlighting
 - powerlevel10k
 - Zoxide
+- eza
 - fzf
 - fastfetch
 - Distrobox
