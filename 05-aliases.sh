@@ -36,25 +36,28 @@ alias cd....='cd ../../..'
 alias cd.....='cd ../../../..'
 alias '\cd'='builtin cd' # Allow using bultin cd (overriden by zoxide)
 
-# ls aliases  # From: https://github.com/ChrisTitusTech/mybash
-alias la='ls -Alh'                # show hidden files
-alias ls='ls -Fh --color=always'  # add colors and file type extensions
-alias lx='ls -lXBh'               # sort by extension
-alias lk='ls -lSrh'               # sort by size
-alias lc='ls -ltcrh'              # sort by change time
-alias lu='ls -lturh'              # sort by access time
-alias lr='ls -lRh'                # recursive ls
-alias lt='ls -ltrh'               # sort by date
-alias lm='ls -alh |more'          # pipe through 'more'
-alias lw='ls -xAh'                # wide listing format
-alias ll='ls -Fls'                # long listing format
-alias labc='ls -lp'               # alphabetical sort
-alias lf="ls -l | egrep -v '^d'"  # files only
-alias ldir="ls -l | egrep '^d'"   # directories only
-alias lla='ls -Al'                # List and Hidden Files
-alias las='ls -A'                 # Hidden Files
-alias lls='ls -l'                 # List
-alias dir='ls -lFh --color=always'
+# ls aliases
+if command -v eza >/dev/null 2>&1; then
+    alias ls='eza -F -h --color=always' # add colors and file type indicators
+else
+    alias ls='ls -Fh --color=always' # add colors and file type indicators
+fi
+alias la='eza -Alh --icons --header'                                       # show hidden files
+alias lx='eza -lh --sort=extension --icons --header'                       # sort by extension
+alias lk='eza -lh --total-size --sort=size --reverse --icons --header'     # sort by size
+alias lc='eza -lh --sort=changed --reverse --icons --header'               # sort by change time
+alias lu='eza -lh --sort=accessed --reverse --icons --header'              # sort by access time
+alias lr='eza -lh --recurse --icons --header'                              # recursive listing
+alias lt='eza -lh --sort=modified --reverse --icons --header'              # sort by date
+alias lm='eza -Alh --icons --header --color=always | less -R'              # pipe through 'less'
+alias lw='eza -x -Ah --icons --header'                                     # wide/grid listing format
+alias ll='eza -l -F -h --color=always --icons --header'                    # long listing format
+alias labc='eza -lh --sort=name --icons --header'                          # alphabetical sort
+alias lf="eza -lh --only-files --icons --header"                           # files only
+alias ldir="eza -lh --only-dirs --icons --header"                          # directories only
+alias lla='eza -Alh  --icons --header'                                     # list and hidden files
+alias las='eza -A --icons --header'                                        # hidden files
+alias dir='eza -l -F -h --color=always --icons --header'
 
 # tar aliases # From: https://github.com/ChrisTitusTech/mybash
 alias mktar='tar -cvf'
