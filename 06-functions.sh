@@ -172,3 +172,76 @@ pkgpf() { # PacKaGe Purge Fuzzyly
       ;;
   esac
 }
+
+# Make .desktop file for an item
+mkdesktop() {
+    local input="$1"
+
+    if [ -z "$input" ]; then
+        echo "Usage: mkdesktop <path>" >&2
+        return 1
+    fi
+
+    if [ ! -e "$input" ]; then
+        echo "Error: '$input' does not exist" >&2
+        return 1
+    fi
+
+    local target dir name out icon exec_line type
+    target=$(realpath -- "$input") || return 1
+    dir=$(dirname -- "$target")
+    name=$(basename -- "$target")
+    out="$dir/$name.desktop"
+
+    if [ -e "$out" ]; then
+        echo "Error: '$out' already exists" >&2
+        return 1
+    fi
+
+    # Escape characters that are special inside a quoted Exec argument
+    local esc=${target//\\/\\\\}
+    esc=${esc//\"/\\\"}
+    esc=${esc//\`/\\\`}
+    esc=${esc//\$/\\\$}
+    esc=${esc//\%/%%}
+
+    if [ -d "$target" ]; then
+        type="dir"
+    elif [ -x "$target" ]; then
+        type="exec"
+    elif [ -f "$target" ]; then
+        type="file"
+    else
+        echo "Error: Unknown input type" >&2
+        return 1
+    fi
+
+    case "$type" in
+        dir)
+            icon="inode-directory"
+            exec_line="xdg-open \"$esc\""
+            ;;
+        file)
+            icon=$(xdg-mime query filetype "$target" 2>/dev/null | tr '/' '-')
+            [ -z "$icon" ] && icon="text-x-generic"
+            exec_line="xdg-open \"$esc\""
+            ;;
+        exec)
+            icon="application-x-executable"
+            exec_line="\"$esc\""
+            ;;
+    esac
+
+    cat << EOF > "$out"
+[Desktop Entry]
+Type=Application
+Name=$name
+Exec=$exec_line
+Path=$dir
+Icon=$icon
+Terminal=false
+EOF
+
+    chmod +x "$out"
+    echo "Created: $out ($type)"
+}
