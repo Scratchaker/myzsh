@@ -191,7 +191,7 @@ mkdesktop() {
     target=$(realpath -- "$input") || return 1
     dir=$(dirname -- "$target")
     name=$(basename -- "$target")
-    out="$dir/$name.desktop"
+    out="$(pwd)/$name.desktop"
 
     if [ -e "$out" ]; then
         echo "Error: '$out' already exists" >&2
