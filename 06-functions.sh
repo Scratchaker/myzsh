@@ -93,6 +93,15 @@ aurcheck() {
   xdg-open "https://aur.archlinux.org/packages/$1"
 }
 
+# Find appid for flatpak
+flatid() {
+  flatpak list --app --columns=application | tail -n +1 | grep -i "$1" | head -1
+}
+# Run flatpak
+flatrun() {
+  (flatpak run $(flatpak list --app --columns=application | tail -n +1 | grep -i "$1" | head -1) &>/dev/null &)
+}
+
 # Packcage manager functions
 _pkg_manager() { # Detect packcage manager
   if command -v yay &>/dev/null; then echo "yay"
