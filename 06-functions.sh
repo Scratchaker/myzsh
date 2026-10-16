@@ -175,19 +175,20 @@ pkgpf() { # PacKaGe Purge Fuzzyly
 
 # Make .desktop file for an item
 mkdesktop() {
-    local input="$1"
+  # Check if arguments are passed
+  if [ -z "$*" ]; then
+      echo "Usage: mkdesktop <path(s)>" >&2
+      return 1
+  fi
+  # Define local vars
+  local target dir name out icon exec_line type esc
 
-    if [ -z "$input" ]; then
-        echo "Usage: mkdesktop <path>" >&2
-        return 1
-    fi
-
+  # Loop
+  for input in "$@"; do
     if [ ! -e "$input" ]; then
         echo "Error: '$input' does not exist" >&2
-        return 1
+        continue
     fi
-
-    local target dir name out icon exec_line type
     target=$(realpath -- "$input") || return 1
     dir=$(dirname -- "$target")
     name=$(basename -- "$target")
@@ -195,15 +196,8 @@ mkdesktop() {
 
     if [ -e "$out" ]; then
         echo "Error: '$out' already exists" >&2
-        return 1
+        continue
     fi
-
-    # Escape characters that are special inside a quoted Exec argument
-    local esc=${target//\\/\\\\}
-    esc=${esc//\"/\\\"}
-    esc=${esc//\`/\\\`}
-    esc=${esc//\$/\\\$}
-    esc=${esc//\%/%%}
 
     if [ -d "$target" ]; then
         type="dir"
@@ -212,9 +206,16 @@ mkdesktop() {
     elif [ -f "$target" ]; then
         type="file"
     else
-        echo "Error: Unknown input type" >&2
-        return 1
+        echo "Error: Unknown input type '$input'" >&2
+        continue
     fi
+
+    # Escape characters that are special inside a quoted Exec argument
+    esc=${target//\\/\\\\}
+    esc=${esc//\"/\\\"}
+    esc=${esc//\`/\\\`}
+    esc=${esc//\$/\\\$}
+    esc=${esc//\%/%%}
 
     case "$type" in
         dir)
@@ -244,4 +245,5 @@ EOF
 
     chmod +x "$out"
     echo "Created: $out ($type)"
+  done
 }
