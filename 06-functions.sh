@@ -112,11 +112,34 @@ flatdetach() {
   shift 1
   (nohup flatpak run "$id" "$@" &>/dev/null &)
 }
-# Fuzzily detach flatpak
-fzpak() {
-  local name="$(fzf --height 40% --layout=reverse < <(flatpak list --app --columns=name | tail -n +1))"
-  local id="$(flatpak list --app --columns=application,name | tail -n +1 | grep -i "$name" | head -1 | awk '{print $1}')"
-  (nohup flatpak run "$id" "$@" &>/dev/null &)
+
+# Fuzzily detach an app
+apprun() {
+  local -a files
+  local dir file app
+  while IFS= read -r dir; do
+    [[ -d "$dir/applications" ]] || continue
+    while IFS= read -r file; do files+=("$file"); done < <(find "$dir/applications" -iname '*.desktop' 2>/dev/null)
+  done < <(printf '%s\n' "${XDG_DATA_HOME:-$HOME/.local/share}:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}" | tr ':' '\n')
+
+  app="$(
+    awk '
+      function flush() {
+        if (path != "" && !(base in seen)) {
+          seen[base] = 1
+          if (name != "" && !hide) printf "%s\t%s\n", name, path
+        }
+      }
+      FNR == 1 { flush(); path = FILENAME; base = FILENAME; sub(/.*\//, "", base); name = ""; hide = 0; inentry = 0 }
+      /^\[/ { inentry = ($0 == "[Desktop Entry]"); next }
+      inentry && /^Name=/ && name == "" { name = substr($0, 6) }
+      inentry && /^(NoDisplay|Hidden)=true/ { hide = 1 }
+      END { flush() }
+    ' "${files[@]}" | sort -f -t$'\t' -k1,1 | fzf --height 40% --layout=reverse --delimiter=$'\t' --with-nth=1 | cut -f2
+  )"
+
+  [[ -n "$app" ]] || return
+  (nohup gio launch "$app" "$@" &>/dev/null &)
 }
 
 # Packcage manager functions
