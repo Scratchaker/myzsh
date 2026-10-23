@@ -94,18 +94,18 @@ aurcheck() {
 }
 
 # Flatpak management functions
-# Find appid
+# Find flatpak appid
 flatid() {
   flatpak list --app --columns=application | tail -n +1 | grep -i "$1" | head -1
 }
-# Run
+# Run flatpak
 flatrun() {
   [ -z "$1" ] && return 1
   local id="$(flatpak list --app --columns=application | tail -n +1 | grep -i "$1" | head -1)"
   shift 1
   flatpak run "$id" "$@"
 }
-# Detach
+# Detach flatpak
 flatdetach() {
   [ -z "$1" ] && return 1
   local id="$(flatpak list --app --columns=application | tail -n +1 | grep -i "$1" | head -1)"
