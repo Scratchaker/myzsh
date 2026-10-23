@@ -93,13 +93,30 @@ aurcheck() {
   xdg-open "https://aur.archlinux.org/packages/$1"
 }
 
-# Find appid for flatpak
+# Flatpak management functions
+# Find appid
 flatid() {
   flatpak list --app --columns=application | tail -n +1 | grep -i "$1" | head -1
 }
-# Run flatpak
+# Run
 flatrun() {
-  (flatpak run $(flatpak list --app --columns=application | tail -n +1 | grep -i "$1" | head -1) &>/dev/null &)
+  [ -z "$1" ] && return 1
+  local id="$(flatpak list --app --columns=application | tail -n +1 | grep -i "$1" | head -1)"
+  shift 1
+  flatpak run "$id" "$@"
+}
+# Detach
+flatdetach() {
+  [ -z "$1" ] && return 1
+  local id="$(flatpak list --app --columns=application | tail -n +1 | grep -i "$1" | head -1)"
+  shift 1
+  (nohup flatpak run "$id" "$@" &>/dev/null &)
+}
+# Fuzzily detach flatpak
+fzpak() {
+  local name="$(fzf --height 40% --layout=reverse < <(flatpak list --app --columns=name | tail -n +1))"
+  local id="$(flatpak list --app --columns=application,name | tail -n +1 | grep -i "$name" | head -1 | awk '{print $1}')"
+  (nohup flatpak run "$id" "$@" &>/dev/null &)
 }
 
 # Packcage manager functions
