@@ -22,6 +22,7 @@ alias o.='xdg-open .'
 alias please='sudo'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias cls='clear'
+alias spanish='LANG=es_ES.UTF-8 LANGUAGE=es_ES.UTF-8 ' # To test software translation
 
 
 # cd aliases
