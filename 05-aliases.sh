@@ -23,6 +23,7 @@ alias please='sudo'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias cls='clear'
 alias spanish='LANG=es_ES.UTF-8 LANGUAGE=es_ES.UTF-8 ' # To test software translation
+alias fixflatpak='systemctl --user restart xdg-document-portal.service; systemctl --user restart xdg-desktop-portal.service'
 
 
 # cd aliases
