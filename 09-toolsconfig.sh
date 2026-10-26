@@ -9,5 +9,5 @@ eval "$(zoxide init zsh --cmd cd)"
 [[ -f /etc/zsh_command_not_found ]] && . /etc/zsh_command_not_found
 # Arch Linux (pacman)
 [[ -f /usr/share/doc/pkgfile/command-not-found.zsh ]] && . /usr/share/doc/pkgfile/command-not-found.zsh
-# Fedora/RHEL (dnf)
-[[ -f /usr/libexec/pk-command-not-found ]] && . /usr/libexec/pk-command-not-found
+# Fedora (PackageKit)
+[[ -f /etc/profile.d/PackageKit.sh ]] && . /etc/profile.d/PackageKit.sh
