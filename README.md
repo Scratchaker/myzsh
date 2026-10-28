@@ -161,3 +161,15 @@ Copy the `.config/fastfetch/config.jsonc` file in the repo to `~/.config/fastfet
 ```
 
 </details>
+<details>
+<summary><strong>Font</strong></summary>
+
+Automatically download and install MesloLG Nerd Font (or another of your preference):
+
+```
+mkdir -p ~/.local/share/fonts/Meslo && curl -fL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Meslo.zip -o /tmp/Meslo.zip && unzip -o /tmp/Meslo.zip -d ~/.local/share/fonts/Meslo && fc-cache -fv
+```
+
+Then set `MesloLGS Nerd Font Mono` font in your terminal configuration.
+
+</details>
