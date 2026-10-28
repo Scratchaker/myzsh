@@ -52,7 +52,7 @@ sudo pacman -S zsh zoxide eza fzf fastfetch distrobox
 
 <summary><strong>Oh My Zsh</strong></summary>
 
-```sh
+```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
@@ -62,7 +62,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 <summary><strong>zsh-autosuggestions</strong></summary>
 
-```sh
+```
 git clone https://github.com/zsh-users/zsh-autosuggestions.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 ```
 
@@ -72,7 +72,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git "${ZSH_CUSTOM:-$H
 
 <summary><strong>zsh-syntax-highlighting</strong></summary>
 
-```sh
+```
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 ```
 
@@ -86,7 +86,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM
 
 Install powerlevel10k:
 
-```sh
+```
  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
 ```
 Install my config:
@@ -106,7 +106,7 @@ Copy the `.p10k.zsh` file in the repo to `~/.p10k.zsh`:
 
 Download the repo as a ZIP, extract every `.sh` file somewhere in your home folder, and append the following to your `~/.zshrc`, replacing `$HOME/path/to/extracted/files` with the path where you extracted the files.
 
-```sh
+```
 SCRIPTS_PATH="$HOME/path/to/extracted/files"
 for script in "$SCRIPTS_PATH"/*.sh; do
     [ -f "$script" ] && . "$script"
