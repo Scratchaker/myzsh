@@ -53,7 +53,7 @@ sudo pacman -S zsh zoxide eza fzf fastfetch distrobox
 <summary><strong>Oh My Zsh</strong></summary>
 
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 </details>
@@ -171,5 +171,32 @@ mkdir -p ~/.local/share/fonts/Meslo && curl -fL https://github.com/ryanoasis/ner
 ```
 
 Then set `MesloLGS Nerd Font Mono` font in your terminal configuration.
+
+</details>
+
+<details>
+<summary><strong>Change shell</strong></summary>
+
+To change your default shell to zsh run:
+
+```
+chsh -s /usr/bin/zsh
+```
+
+This may break changes you made to `~/.profile`, write the following to `~/.zprofile` to load them:
+```
+# Load ~/.profile
+[ -f "$HOME/.profile" ] && . "$HOME/.profile"
+```
+
+Or run:
+
+```
+ cat << 'EOF' >> "$HOME/.zprofile"
+
+# Load ~/.profile
+[ -f "$HOME/.profile" ] && . "$HOME/.profile"
+EOF
+```
 
 </details>
