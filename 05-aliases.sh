@@ -22,7 +22,7 @@ alias o.='xdg-open .'
 alias please='sudo'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias cls='clear'
-alias spanish='LANG=es_ES.UTF-8 LANGUAGE=es_ES.UTF-8 ' # To test software translation
+alias spanish='LC_ALL=es_ES.UTF-8 LANG=es_ES.UTF-8 LANGUAGE=es_ES.UTF-8 ' # To test software translation
 alias fixflatpak='systemctl --user restart xdg-document-portal.service; systemctl --user restart xdg-desktop-portal.service'
 alias pacman-autoremove='sudo pacman -Rns $(pacman -Qdtq)'
 alias aperture='fastfetch --logo Aperture --logo-color-1 blue --logo-color-2 blue --logo-color-3 blue --logo-color-4 blue --logo-color-5 blue --logo-color-6 blue --logo-color-7 blue --logo-color-8 blue' # Why? I don't know
