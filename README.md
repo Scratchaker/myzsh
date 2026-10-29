@@ -48,40 +48,28 @@ sudo pacman -S zsh zoxide eza fzf fastfetch distrobox
 ```
 
 </details>
+
 <details>
+<summary><strong>Oh My Zsh & plugins</strong></summary>
 
-<summary><strong>Oh My Zsh</strong></summary>
-
+**Oh My Zsh:**
 ```
 RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-</details>
-
-<details>
-
-<summary><strong>zsh-autosuggestions</strong></summary>
-
+**zsh-autosuggestions:**
 ```
 git clone https://github.com/zsh-users/zsh-autosuggestions.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 ```
 
-</details>
-
-<details>
-
-<summary><strong>zsh-syntax-highlighting</strong></summary>
-
+**zsh-syntax-highlighting:**
 ```
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 ```
 
 </details>
 
-</details>
-
 <details>
-
 <summary><strong>powerlevel10k</strong></summary>
 
 Install powerlevel10k:
@@ -101,7 +89,6 @@ Copy the `.p10k.zsh` file in the repo to `~/.p10k.zsh`:
 </details>
 
 <details>
-
 <summary><strong>Shell Profile</strong></summary>
 
 Download the repo as a ZIP, extract every `.sh` file somewhere in your home folder, and append the following to your `~/.zshrc`, replacing `$HOME/path/to/extracted/files` with the path where you extracted the files.
@@ -145,11 +132,9 @@ EOF
 ```
     
 </details>
-
 </details>
 
 <details>
-
 <summary><strong>Fastfetch config</strong></summary>
 
 Copy the `.config/fastfetch/config.jsonc` file in the repo to `~/.config/fastfetch/config.jsonc`:
@@ -161,6 +146,7 @@ Copy the `.config/fastfetch/config.jsonc` file in the repo to `~/.config/fastfet
 ```
 
 </details>
+
 <details>
 <summary><strong>Font</strong></summary>
 
