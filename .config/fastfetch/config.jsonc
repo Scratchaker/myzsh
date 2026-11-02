@@ -5,22 +5,31 @@
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
         "type": "auto",
-        "height": 15,
-        "width": 30,
+        "height": 19,
         "padding": {
-            "top": 2,
+            "top": 1,
             "left": 2
         }
     },
     "display": {
+        "constants": [
+            "\u001b[80C\u001b[22;90m│\u001b[81D\u001b[1;32m", // {$1} green
+            "\u001b[80C\u001b[22;90m│\u001b[81D\u001b[1;33m", // {$2} yellow
+            "\u001b[80C\u001b[22;90m│\u001b[81D\u001b[1;34m", // {$3} blue
+            "\u001b[80C\u001b[22;90m│\u001b[81D\u001b[1;35m", // {$4} magenta
+            "\u001b[80C\u001b[22;90m│\u001b[81D\u001b[1;31m", // {$5} red
+            "\u001b[80C\u001b[22;90m│\u001b[81D\u001b[1;36m", // {$6} cyan
+            "\u001b[80C\u001b[22;90m│\u001b[81D\u001b[1;37m", // {$7} white
+            "\u001b[80C\u001b[22;90m│\u001b[81D\u001b[1;30m"  // {$8} black
+        ],
         "percent": {
             "type": ["bar"]
         },
         "bar": {
             "width": 10,
             "char": {
-                "elapsed": "■",
-                "total": "\u001b[90m·"
+                "elapsed": "\u25a0",
+                "total": "\u001b[90m\u00b7"
             },
             "border": {
                 "left": "",
@@ -31,26 +40,26 @@
     "modules": [
         {
             "type": "custom",
-            "format": "\u001b[90m╭──────────────────────────────────Hardware───────────────────────────────────╮"
+            "format": "\u001b[90m╭───────────────────────────────────Hardware────────────────────────────────────╮"
         },
         {
             "type": "custom",
-            "format": "\u001b[1;92m󰌢 PC\u001b[0m",
+            "format": "{$1}\u001b[1;92m\udb80\udf22 PC\u001b[0m",
             "keyColor": "green"
         },
         {
             "type": "cpu",
-            "key": "├   ",
+            "key": "{$1}├  \uf4bc ",
             "keyColor": "green"
         },
         {
             "type": "gpu",
-            "key": "├  󰍹 ",
+            "key": "{$1}├  \udb80\udf79 ",
             "keyColor": "green"
         },
         {
             "type": "memory",
-            "key": "├   ",
+            "key": "{$1}├  \uefc5 ",
             "keyColor": "green",
             "percent": {
                 "type": 9
@@ -58,7 +67,7 @@
         },
         {
             "type": "swap",
-            "key": "├  󰯍 ",
+            "key": "{$1}├  \udb82\udfcd ",
             "keyColor": "green",
             "percent": {
                 "type": 9
@@ -66,8 +75,8 @@
         },
         {
             "type": "disk",
-            "key": "├  󰋊 ",
-            "format": "\u001b[1;32m({mountpoint:-23})\u001b[0m {size-used} [{size-percentage} {size-percentage-bar}] {size-total} - {filesystem}",
+            "key": "{$1}├  \udb80\udeca ",
+            "format": "\u001b[1;32m({mountpoint:-24})\u001b[0m {size-used} [{size-percentage} {size-percentage-bar}] {size-total} - {filesystem}",
             "keyColor": "green",
             "percent": {
                 "type": ["bar", "num"]
@@ -76,7 +85,7 @@
         {
             "type": "localip",
             "keyColor": "green",
-            "key": "├   ",
+            "key": "{$1}├  \ueb01 ",
             "showIpv4": true,
             "showIpv6": false,
             "showLoopback": false,
@@ -86,77 +95,64 @@
         },
         {
             "type": "custom",
-            "format": "\u001b[90m╰─────────────────────────────────────────────────────────────────────────────╯"
-        },
-        {
-            "type": "custom",
-            "format": "\u001b[90m╭──────────────────────────────────Software───────────────────────────────────╮"
+            "format": "\u001b[90m├───────────────────────────────────Software────────────────────────────────────┤"
         },
         {
             "type": "os",
-            "key": " OS",
+            "key": "{$2}\uebc6 OS",
             "format": "{3}",
             "keyColor": "yellow"
         },
         {
             "type": "kernel",
-            "key": "├   ",
+            "key": "{$2}├  \uf013 ",
             "keyColor": "yellow"
         },
 
         {
             "type": "packages",
-            "key": "├  󰏗 ",
+            "key": "{$2}├  \udb80\udfd7 ",
             "keyColor": "yellow"
         },
         {
             "type": "shell",
-            "key": "├  󰞷 ",
+            "key": "{$2}├  \udb81\udfb7 ",
             "format": "{1}",
             "keyColor": "yellow"
         },
         {
             "type": "de",
-            "key": "󰧨 DE",
+            "key": "{$3}\udb82\udde8 DE",
             "keyColor": "blue"
         },
         {
             "type": "wm",
-            "key": "├  󱂬 ",
+            "key": "{$3}├  \udb84\udcac ",
             "keyColor": "blue"
         },
         {
             "type": "wmtheme",
-            "key": "├  󰉦 ",
+            "key": "{$3}├  \udb80\ude66 ",
             "keyColor": "blue"
         },
         {
             "type": "custom",
-            "format": "\u001b[90m╰─────────────────────────────────────────────────────────────────────────────╯"
-        },
-        {
-            "type": "custom",
-            "format": "\u001b[90m╭─────────────────────────────────Uptime / Age────────────────────────────────╮"
+            "format": "\u001b[90m├──────────────────────────────────Uptime / Age─────────────────────────────────┤"
         },
         {
             "type": "uptime",
-            "key": "├  Uptime  ",
-            "keyColor": "magenta"
+            "key": "{$4}├ \ue389 Uptime  ",
+            "keyColor": "magenta",
         },
         {
             "type": "command",
-            "key": "├ 󱦟 OS Age  ",
+            "key": "{$4}├ \udb86\udd9f OS Age  ",
             "keyColor": "magenta",
             "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
         },
         {
             "type": "custom",
-            "format": "\u001b[90m╰─────────────────────────────────────────────────────────────────────────────╯"
-        },
-        {
-            "type": "colors",
-            "paddingLeft": 2,
-            "symbol": "circle"
+            "format": "\u001b[90m╰───────────────────────────────────────────────────────────────────────────────╯"
         }
     ]
 }
