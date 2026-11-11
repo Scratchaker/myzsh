@@ -141,7 +141,7 @@ Automatically download and install MesloLG Nerd Font (or another of your prefere
 mkdir -p ~/.local/share/fonts/Meslo && curl -fL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Meslo.zip -o /tmp/Meslo.zip && unzip -o /tmp/Meslo.zip -d ~/.local/share/fonts/Meslo && fc-cache -fv
 ```
 
-Then set `MesloLGS Nerd Font Mono` font in your terminal configuration.
+Then set `MesloLGS Nerd Font` font in your terminal configuration.
 
 </details>
 
