@@ -42,7 +42,7 @@ alias '\cd'='builtin cd' # Allow using bultin cd (overriden by zoxide)
 
 # ls aliases
 if command -v eza >/dev/null 2>&1; then
-    alias ls='eza -F -h --color=always' # add colors and file type indicators
+    alias ls='eza -F -h --icons --color=always' # add colors and file type indicators
 else
     alias ls='ls -Fh --color=always' # add colors and file type indicators
 fi
