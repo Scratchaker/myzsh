@@ -1,8 +1,8 @@
 # fzf config
-eval "$(fzf --zsh)"
+command -v fzf >/dev/null 2>&1 && eval "$(fzf --zsh)"
 
 # zoxide config
-eval "$(zoxide init zsh --cmd cd)"
+command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init zsh --cmd cd)"
 
 # Prompt for installation when no packcage found
 # Debian/Ubuntu (apt)
