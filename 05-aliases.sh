@@ -28,7 +28,6 @@ alias fixflatpak='systemctl --user restart xdg-document-portal.service; systemct
 alias pacman-autoremove='sudo pacman -Rns $(pacman -Qdtq)'
 alias aperture='fastfetch --logo Aperture --logo-color-1 blue --logo-color-2 blue --logo-color-3 blue --logo-color-4 blue --logo-color-5 blue --logo-color-6 blue --logo-color-7 blue --logo-color-8 blue' # Why? I don't know
 
-
 # cd aliases
 alias z..='z ..'
 alias cdr='cd'
@@ -70,3 +69,8 @@ alias mkgz='tar -cvzf'
 alias untar='tar -xvf'
 alias unbz2='tar -xvjf'
 alias ungz='tar -xvzf'
+
+# suffix aliases
+alias -s {pdf,epub,mobi,azw3,djvu,cbz,cbr,odt,ods,odp,odg,doc,xls,ppt,docx,xlsx,pptx,rtf,csv,html,htm,png,jpg,jpeg,gif,webp,bmp,tif,tiff,svg,heic,mp4,mkv,webm,avi,mov,m4v,flv,wmv,mpg,mpeg,3gp,ogv,mp3,flac,ogg,opus,wav,m4a,aac,wma,aiff,mka}='xdg-open'
+alias -s {txt,md,log,conf,cfg,ini,toml,yml,yaml,json,xml,csv}='${EDITOR:-vi}'
+alias -s {c,h,cpp,hpp,rs,go,java,lua}='${EDITOR:-vi}'
