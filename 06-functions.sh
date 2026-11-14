@@ -76,6 +76,28 @@ mvcd() {
 	fi
 }
 
+# chpwd
+chdirhook() {
+    # Activate/deactivate Python virtual environments
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+      # Deactivate
+      if [[ "$PWD" != "${VIRTUAL_ENV:h}"* ]]; then
+        deactivate
+      fi
+    else
+      for i in "./.venv/bin/activate" "./venv/bin/activate"; do
+        if [ -f "$i" ]; then
+          source "$i"
+          break
+        fi
+      done
+    fi
+    # List directory contents if there are fewer than 30 items
+    if [ "$(ls -1 | wc -l)" -lt 30 ]; then
+      command -v eza >/dev/null 2>&1 && eza --icons || ls
+    fi
+}
+chpwd_functions+=(chdirhook)
 
 # Temporary container for testing with persistent home.
 # DO NOT RUN DANGEROUS COMMANDS IN THE CONTAINER: They can reach the host. The container's purpose is to test stuff without dirtying the host.
