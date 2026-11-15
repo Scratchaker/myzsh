@@ -94,6 +94,15 @@
             "showPrefixLen": false
         },
         {
+            "type": "battery",
+            "key": "{$1}├  \uf242 ",
+            "keyColor": "green",
+            "percent": {
+                "type": ["bar", "num"]
+            },
+            "format": "[{capacity} {capacity-bar}] ({time-formatted}) - {status}"
+        },
+        {
             "type": "custom",
             "format": "\u001b[90m├───────────────────────────────────Software────────────────────────────────────┤"
         },
