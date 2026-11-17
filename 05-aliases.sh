@@ -38,6 +38,7 @@ alias cd...='cd ../..'
 alias cd....='cd ../../..'
 alias cd.....='cd ../../../..'
 alias '\cd'='builtin cd' # Allow using bultin cd (overriden by zoxide)
+alias cdq='builtin cd -q' # Change directory without triggering custom chpwd functions or zoxide
 
 # ls aliases
 if command -v eza >/dev/null 2>&1; then
