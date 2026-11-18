@@ -30,8 +30,6 @@ alias aperture='fastfetch --logo Aperture --logo-color-1 blue --logo-color-2 blu
 
 # cd aliases
 alias z..='z ..'
-alias cdr='cd'
-alias cdr..='cd ..'
 alias home='cd ~'
 alias cd..='cd ..'
 alias cd...='cd ../..'
