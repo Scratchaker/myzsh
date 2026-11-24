@@ -34,17 +34,17 @@ Dependig on what features you decide to add you may need some of the following d
 
 **Debian/Ubuntu:**
 ```
-sudo apt install zsh zoxide eza fzf fastfetch distrobox
+sudo apt install zsh git zoxide eza fzf fastfetch distrobox
 ```
 
 **Fedora:**
 ```
-sudo dnf install zsh zoxide eza fzf fastfetch distrobox
+sudo dnf install zsh git zoxide eza fzf fastfetch distrobox
 ```
 
 **Arch Linux:**
 ```
-sudo pacman -S zsh zoxide eza fzf fastfetch distrobox
+sudo pacman -S zsh git zoxide eza fzf fastfetch distrobox
 ```
 
 </details>
